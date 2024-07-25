@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@chakra-ui/react": "^2.8.2",
         "@langchain/community": "^0.2.20",
         "@langchain/core": "^0.2.18",
         "@langchain/langgraph": "^0.0.31",

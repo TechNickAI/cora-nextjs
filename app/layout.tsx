@@ -1,4 +1,6 @@
 import "@/app/globals.css"
+import { Box } from "@chakra-ui/react"
+import { Providers } from "./providers"
 
 const logoUrl = "https://d1xiic2ql9d7gm.cloudfront.net/logo_cora.png"
 
@@ -38,9 +40,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en">
             <body>
-                <div className="flex flex-col min-h-screen">
-                    <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
-                </div>
+                <Providers>
+                    <Box>{children}</Box>
+                </Providers>
             </body>
         </html>
     )
