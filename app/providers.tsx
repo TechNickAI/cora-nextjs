@@ -3,6 +3,11 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 
 const theme = extendTheme({
+    fonts: {
+        body: "Verdana, sans-serif",
+        heading: "Verdana, sans-seriff",
+        mono: "Verdana, monospace",
+    },
     colors: {
         brand: {
             50: "#FAF5FF",
