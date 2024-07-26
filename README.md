@@ -24,7 +24,62 @@ At the core of Cora's development is the philosophy of Heart Centered AI, which 
 
 ## Installation and Setup
 
-TODO
+To get up and running in a development environment, follow these steps:
+
+```bash
+pnpm install
+pnpm run dev
+```
+
+You'll have to set up a few environment variables to get the app running. See [.env.example](.env.example) for more details.
+
+## TODOs
+
+### First release (on par with typing mind)
+
+-   [x] Base nextjs setup
+-   [x] Base Chakra UI setup
+-   [x] Basic chat working with an agent
+-   [ ] Anthropic support
+-   [ ] Pre-process the users request
+-   [ ] Login with Google
+-   [ ] Store all chat histories in Zep or MemGPT
+-   [ ] Voice input
+-   [ ] Display status from tools
+-   [ ] Dynamically choose which is the best model for the query
+-   [ ] Link to appropriate google results
+-   [ ] Perplexity support
+-   [ ] Use the memory to store facts and have them included in the response
+-   [ ] Allow for past user chat histories to be referenced in responses
+-   [ ] Greet the user with a personalized opening chat
+
+### After first release
+
+-   [] New User onboarding (gather facts, walk them through the interface)
+-   [ ] Web page reader
+-   [ ] Cora as an orchestration layer
+-   [ ] Upload files
+-   [ ] Generate images
+-   [ ] Card library for sophisticated responses
+-   [ ] Dynamically generate the cards
+-   [ ] Cora as a product manager for one user. Then sharing information across users to self improve.
+-   [ ] Dynamically create the agents to perform the task
+-   [ ] Support sophisticated multi agent report for detailed research
+
+### Card Library ideas
+
+-   Google Maps
+-   Yelp
+-   Restaraunt view
+-   Wikipedia view
+
+### Pre-processing ideas
+
+-   Detect if the user would be best served by Google's first result and do that
+-   Detect if the request is quick and simple, and respond with grok
+-   Empathize with the the user and have that inform the tone of the response
+-   Enhance the query (prompt engineering)
+-   Detect if the user will want up to date information (use perplexity)
 
 ## Privacy and Security
 
@@ -32,8 +87,8 @@ Cora is designed with the highest standards of data privacy and security. While 
 
 ## Acknowledgments
 
-- Inspired by the concept of Heart Centered AI and the vision of creating technology that truly serves humanity
-- Built with gratitude for the open-source AI community and pioneers in ethical AI development
+-   Inspired by the concept of Heart Centered AI and the vision of creating technology that truly serves humanity
+-   Built with gratitude for the open-source AI community and pioneers in ethical AI development
 
 ## Coding Principles
 
