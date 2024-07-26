@@ -3,6 +3,7 @@ import { Message as VercelChatMessage, StreamingTextResponse } from "ai"
 import { createReactAgent } from "@langchain/langgraph/prebuilt"
 import { ChatOpenAI } from "@langchain/openai"
 import { Calculator } from "@langchain/community/tools/calculator"
+import { TavilySearchResults } from "@langchain/community/tools/tavily_search"
 import { AIMessage, BaseMessage, ChatMessage, HumanMessage, SystemMessage } from "@langchain/core/messages"
 export const runtime = "edge"
 
@@ -104,8 +105,9 @@ export async function POST(req: NextRequest) {
             .filter((message: VercelChatMessage) => message.role === "user" || message.role === "assistant")
             .map(convertVercelMessageToLangChainMessage)
 
-        const tools = [new Calculator()]
-        const chat_model = new ChatOpenAI({ model: "gpt-4o" })
+        // Print out the environment variables
+        const tools = [new Calculator(), new TavilySearchResults()]
+        const chat_model = new ChatOpenAI({ model: "gpt-4" })
 
         /**
          * Use a prebuilt LangGraph agent.
