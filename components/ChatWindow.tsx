@@ -1,13 +1,24 @@
 "use client"
 
-import { Box, Flex, Heading, Button, Textarea, Checkbox, Image, VStack, Container } from "@chakra-ui/react"
+import {
+    Box,
+    Flex,
+    Heading,
+    Button,
+    Textarea,
+    Checkbox,
+    Image,
+    VStack,
+    Spinner,
+    Container,
+} from "@chakra-ui/react"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import { Message } from "ai"
 import { useChat } from "ai/react"
 import { useRef, useState, ReactElement } from "react"
-import type { FormEvent } from "react"
+import type { FormEvent, KeyboardEvent } from "react"
 
 import { ChatMessageBubble } from "@/components/ChatMessageBubble"
 import { IntermediateStep } from "./IntermediateStep"
@@ -77,6 +88,17 @@ export function ChatWindow(props: {
             })
         },
     })
+
+    const [rows, setRows] = useState(1)
+
+    const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault()
+            sendMessage(e as any)
+        } else if (e.key === "Enter" && e.shiftKey) {
+            setRows((prev) => prev + 1)
+        }
+    }
 
     async function sendMessage(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -177,6 +199,7 @@ export function ChatWindow(props: {
                     overflowY="auto"
                     ref={messageContainerRef}
                     display="flex"
+                    flexDirection="column-reverse"
                 >
                     {messages.length === 0 ? (
                         emptyStateComponent
@@ -208,18 +231,18 @@ export function ChatWindow(props: {
                             value={input}
                             placeholder={placeholder ?? "How can I assist you today?"}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                             resize="none"
-                            rows={1}
+                            rows={rows}
                             minH="40px"
                         />
                         <Button
                             type="submit"
                             colorScheme="blue"
                             isLoading={chatEndpointIsLoading || intermediateStepsLoading}
-                            loadingText="Send"
                             minW="80px"
                         >
-                            Send
+                            {chatEndpointIsLoading || intermediateStepsLoading ? <Spinner size="sm" /> : "Send"}
                         </Button>
                     </Flex>
                 </form>
