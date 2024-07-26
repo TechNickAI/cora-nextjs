@@ -33,7 +33,7 @@ export function ChatWindow(props: {
 }) {
     const messageContainerRef = useRef<HTMLDivElement | null>(null)
 
-    const { endpoint, emptyStateComponent, placeholder, showIntermediateStepsToggle, aiModel } = props
+    const { endpoint, emptyStateComponent, placeholder, showIntermediateStepsToggle } = props
 
     const [showIntermediateSteps, setShowIntermediateSteps] = useState(false)
     const [intermediateStepsLoading, setIntermediateStepsLoading] = useState(false)
