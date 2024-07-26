@@ -11,15 +11,14 @@ import {
     VStack,
     Spinner,
     Container,
+    Text,
 } from "@chakra-ui/react"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-
 import { Message } from "ai"
 import { useChat } from "ai/react"
 import { useRef, useState, ReactElement } from "react"
 import type { FormEvent, KeyboardEvent } from "react"
-
 import { ChatMessageBubble } from "@/components/ChatMessageBubble"
 import { IntermediateStep } from "./IntermediateStep"
 
@@ -30,19 +29,11 @@ export function ChatWindow(props: {
     emptyStateComponent: ReactElement
     placeholder?: string
     titleText?: string
-    emoji?: string
     showIntermediateStepsToggle?: boolean
 }) {
     const messageContainerRef = useRef<HTMLDivElement | null>(null)
 
-    const {
-        endpoint,
-        emptyStateComponent,
-        placeholder,
-        titleText = "An LLM",
-        showIntermediateStepsToggle,
-        emoji,
-    } = props
+    const { endpoint, emptyStateComponent, placeholder, showIntermediateStepsToggle, aiModel } = props
 
     const [showIntermediateSteps, setShowIntermediateSteps] = useState(false)
     const [intermediateStepsLoading, setIntermediateStepsLoading] = useState(false)
@@ -182,11 +173,11 @@ export function ChatWindow(props: {
 
     return (
         <Container maxW="container.md" py={8}>
-            <VStack spacing={6} align="stretch">
+            <VStack spacing={4} align="stretch">
                 <Flex align="center" justify="center">
-                    <Image src={logoUrl} alt="Cora Logo" boxSize="40px" mr={3} />
-                    <Heading as="h1" size="lg">
-                        Elevating AI through Empathy
+                    <Image src={logoUrl} alt="Cora Logo" boxSize="30px" mr={3} borderRadius="md" />
+                    <Heading as="h1" size="lg" display="flex" alignItems="center">
+                        Cora 🤖 + 💙
                     </Heading>
                 </Flex>
 
@@ -213,7 +204,6 @@ export function ChatWindow(props: {
                                     <ChatMessageBubble
                                         key={m.id}
                                         message={m}
-                                        aiEmoji={emoji}
                                         sources={sourcesForMessages[sourceKey]}
                                     />
                                 )
@@ -246,6 +236,10 @@ export function ChatWindow(props: {
                         </Button>
                     </Flex>
                 </form>
+
+                <Text fontSize="xs" color="gray.500" textAlign="center" mt={4}>
+                    Elevating AI through Empathy
+                </Text>
             </VStack>
             <ToastContainer />
         </Container>
