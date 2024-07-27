@@ -55,16 +55,24 @@ You'll have to set up a few environment variables to get the app running. See [.
 
 ### After first release
 
--   [] New User onboarding (gather facts, walk them through the interface)
+-   [ ] New User onboarding (gather facts, walk them through the interface)
 -   [ ] Web page reader
 -   [ ] Cora as an orchestration layer
 -   [ ] Upload files
 -   [ ] Generate images
 -   [ ] Card library for sophisticated responses
--   [ ] Dynamically generate the cards
+-   [ ] Dynamically generate the cards (Generative UI)
 -   [ ] Cora as a product manager for one user. Then sharing information across users to self improve.
 -   [ ] Dynamically create the agents to perform the task
 -   [ ] Support sophisticated multi agent report for detailed research
+
+## Ideas to explore
+
+## Agent
+
+-   Chain of Reasoning
+-   Multi agent (CrewAI, Autogen)
+-   [Meta Prompting](https://arxiv.black/pdf/2401.12954)
 
 ### Card Library ideas
 
@@ -80,15 +88,6 @@ You'll have to set up a few environment variables to get the app running. See [.
 -   Empathize with the the user and have that inform the tone of the response
 -   Enhance the query (prompt engineering)
 -   Detect if the user will want up to date information (use perplexity)
-
-## Privacy and Security
-
-Cora is designed with the highest standards of data privacy and security. While it leverages personal data for enhanced functionality, all information is processed securely, and users have full control over their data. This project is currently intended for use in a trusted environment and is not for public deployment.
-
-## Acknowledgments
-
--   Inspired by the concept of Heart Centered AI and the vision of creating technology that truly serves humanity
--   Built with gratitude for the open-source AI community and pioneers in ethical AI development
 
 ## Coding Principles
 
