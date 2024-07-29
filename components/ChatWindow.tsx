@@ -21,6 +21,7 @@ import { useRef, useState, ReactElement } from "react"
 import type { FormEvent, KeyboardEvent } from "react"
 import { ChatMessageBubble } from "@/components/ChatMessageBubble"
 import { IntermediateStep } from "./IntermediateStep"
+import { ConciergeMessage } from "./ConciergeMessage"
 
 const logoUrl = "https://d1xiic2ql9d7gm.cloudfront.net/logo_cora.png"
 
@@ -237,9 +238,7 @@ export function ChatWindow(props: {
                     </Flex>
                 </form>
 
-                <Text fontSize="xs" color="gray.500" textAlign="center" mt={4}>
-                    Elevating AI through Empathy
-                </Text>
+                <ConciergeMessage />
             </VStack>
             <ToastContainer />
         </Container>

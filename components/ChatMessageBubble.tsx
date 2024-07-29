@@ -1,5 +1,4 @@
 import type { Message } from "ai/react"
-import { ReactNode } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import "github-markdown-css/github-markdown-light.css"
